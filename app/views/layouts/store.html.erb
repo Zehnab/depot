@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Books Online Store</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link rel=”stylesheet” href=”stylesheets/blueprint/screen.css” type=”text/css” media=”screen, projection”>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="store">
+<div id="banner">
+	<img src ="http://chart.apis.google.com/chart?chs=150x150&chl=Agile%20web%20development%20with%20rails%20%2F%20Dave%20Thomas%2C%20David%20Heinemeier%20Hansson%20%3B%20with%20Leon%20Breedt%20...%20[et%20al.]%0D%0A%E8%98%AD%E9%99%BD%E7%AC%AC%E4%BA%8C%E6%9B%B8%E5%BA%AB%0D%0ATK%205105.888.T477%202007%0D%0A0977616630%2C9780977616633&choe=UTF-8&cht=qr&chld=2">
+	<%= @page_title ||"Book Shelf"%>
+	</div>
+	
+	<div id="columns">
+		<div id="side">
+			<a href ="http://localhost:3000/products">Home</a><b/r>
+		</div>
+		
+		<div id ="main">
+				<%= yield :layout %>
+		</div>
+	</div>
+</div>
+			
+	
+	
+
+
+</body>
+</html>
