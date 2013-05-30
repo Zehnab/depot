@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
+  load_and_authorize_resource #uses cancan
+  
   def index
     @products = Product.all
 

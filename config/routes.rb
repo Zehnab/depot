@@ -1,4 +1,8 @@
 Depot::Application.routes.draw do
+#  devise_for :admins
+
+  devise_for :users
+
   get "store/index"
 
  root :to => "home#index"
