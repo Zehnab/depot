@@ -10,7 +10,7 @@ gem 'sqlite3'
 #gem 'strong_parameters'
 
 gem 'devise'
-
+gem 'carrierwave'
 gem "cancan", "~> 1.6.10"
 # Gems used only for assets and not required
 # in production environments by default.

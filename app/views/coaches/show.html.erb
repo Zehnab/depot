@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="image">
+      <%= image_tag @coach.image_url.to_s %>
+      </div>
+<p>
+  <b>Name:</b>
+  <%= @coach.name %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%= @coach.bio %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @coach.level %>
+</p>
+
+
+<% if can? :update, @coach%>
+	<%= link_to 'Edit', edit_coach_path(@coach) %> |
+<%end%>
+
+<%= link_to 'Back', coaches_path %>

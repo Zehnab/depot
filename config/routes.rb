@@ -1,4 +1,7 @@
 Depot::Application.routes.draw do
+  resources :coaches
+
+
 #  devise_for :admins
 
   devise_for :users

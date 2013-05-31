@@ -1,0 +1,40 @@
+<h1>Listing coaches</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Bio</th>
+    <th>Level</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coaches.each do |coach| %>
+  <tr>
+    <td><%= coach.name %></td>
+    <td><%= coach.bio %></td>
+    <td><%= coach.level %></td>
+    
+    <div class="image">
+     <td> <%= image_tag coach.image_url.to_s %><td></td>
+      </div>
+    
+    <td><%= link_to 'Show', coach %></td>
+    
+    
+     <% if can? :update, @coach%>
+    <td><%= link_to 'Edit', edit_coach_path(coach) %></td>
+    <%end%>
+    
+    
+     <% if can? :update, @coach%>
+    <td><%= link_to 'Destroy', coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  	    <%end%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coach', new_coach_path %>
