@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :lesson_date %><br />
-    <%= f.date_select :lesson_date %>
+    <%= f.text_field :lesson_date %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -26,4 +26,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+  <script src="javascripts/form_stuff.js">
+  </script>
 <% end %>
