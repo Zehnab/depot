@@ -1,0 +1,47 @@
+<h1>Listing lessons</h1>
+
+
+  
+  
+<%= calendar_for @lessons, :year => @date.year, :month => @date.month do |calendar| %>
+<%= calendar.head('Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
+<%= calendar.day(:day_method => :lesson_date) do |date, lessons| %>
+<%= date.day %>
+<ul>
+<% for lesson in lessons %>
+  <%= link_to h(lesson.description), lesson %>
+  </br>
+  <% end %>
+  </ul>
+<% end %>
+<% end %>
+
+  <table>
+  <tr>
+    <th>Title</th>
+    <th>Lesson date</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  
+  
+  
+
+<% @lessons.each do |lesson| %>
+  <tr>
+    <td><%= lesson.title %></td>
+    <td><%= lesson.lesson_date %></td>
+    <td><%= lesson.description %></td>
+    <td><%= link_to 'Show', lesson %></td>
+    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
+    <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lesson', new_lesson_path %>
