@@ -1,22 +1,29 @@
 <h1>Listing lessons</h1>
 
-
-  
+   <h2 id="month">
+    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-01") %>
+    <%= h @date.strftime("%B %Y") %>
+    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-01") %>
+  </h2>
   
 <%= calendar_for @lessons, :year => @date.year, :month => @date.month do |calendar| %>
 <%= calendar.head('Sun','Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat') %>
 <%= calendar.day(:day_method => :lesson_date) do |date, lessons| %>
+
+
 <%= date.day %>
 <ul>
-<% for lesson in lessons %>
-  <%= link_to h(lesson.description), lesson %>
-  </br>
+   <% for lesson in lessons %>
+  <%= link_to h(lesson.title), lesson %>
+
   <% end %>
   </ul>
 <% end %>
 <% end %>
 
-  <table>
+
+
+<table>
   <tr>
     <th>Title</th>
     <th>Lesson date</th>

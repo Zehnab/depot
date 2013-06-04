@@ -3,9 +3,7 @@ class LessonsController < ApplicationController
   # GET /lessons.json
   def index
     @lessons = Lesson.all
-
   @date = params[:month] ? Date.parse(params[:month]) : Date.today
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @lessons }
