@@ -1,4 +1,7 @@
 Depot::Application.routes.draw do
+  resources :lessons
+
+
   resources :coaches
 
 
@@ -11,6 +14,8 @@ Depot::Application.routes.draw do
  root :to => "home#index"
  
   resources :products
+  
+  match 'store/add_to_cart/:id' => 'store#add_to_cart', :as => :add_to_cart
 
 
   # The priority is based upon order of creation:
