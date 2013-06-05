@@ -4,6 +4,12 @@ class StoreController < ApplicationController
    # @coaches =Coach.find :all
   end
   
+  #def empty_cart
+   # session[:cart]=nil
+    #flash[:notice]="your cart is empty"
+   #redirect_to_index
+   
+   #end
   
   def add_to_cart
     @cart= find_cart

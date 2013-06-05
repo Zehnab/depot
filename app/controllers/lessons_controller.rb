@@ -1,6 +1,8 @@
 class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
+  load_and_authorize_resource #uses cancan
+  
   def index
     @lessons = Lesson.all
   @date = params[:month] ? Date.parse(params[:month]) : Date.today
