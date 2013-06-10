@@ -15,6 +15,15 @@
   <%= @lesson.description %>
 </p>
 
+<p>
+  <b>Description:</b>
+  <span class="price"><%=number_to_currency(@lesson.price)%></span>
+
+</p>
+
+   <% if can? :update, @lesson%>
 
 <%= link_to 'Edit', edit_lesson_path(@lesson) %> |
 <%= link_to 'Back', lessons_path %>
+
+<%end%>

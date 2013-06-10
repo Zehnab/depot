@@ -3,7 +3,7 @@
 <head>
   <title>Store Catalogue</title>
   <%= stylesheet_link_tag    "style", :media => "all" %>
-  
+    <%= stylesheet_link_tag    "home" %>	
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
@@ -13,18 +13,28 @@
   <h2 id="slogan">Test on Rails</h2>
 </div>
 
+<div id="user_nav">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path , :method =>:delete%>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>
+
 <div id="menu">
-  <ul>
+ <ul>
     <li><a href="http://localhost:3000/">Home</a>&nbsp;|&nbsp;</li>
     <li><a href="/store/index">Shop</a>&nbsp;|&nbsp;</li>
-    <li><a href="/admin/book">Album</a>&nbsp;|&nbsp;</li>
-    <li><a href="/">Catalog</a>&nbsp;|&nbsp;</li>
-    <li><a href="http://localhost:3000/coaches">About</a>&nbsp;</li>
-  </ul>
+ 	<li><%= link_to "blog", posts_path%></li>&nbsp;|&nbsp;
+ 	<li><a href="/about_us/index">About Us</a>&nbsp;|&nbsp;</li>
+	<li><%= link_to "lessons", lessons_path%>&nbsp;|&nbsp;</li>
+   </ul>
 </div>
 <body id="store">
 <div id="banner">
-	<%= @page_title ||"Book Shelf"%>
+	
 	</div>
 	
 	<div id="columns">

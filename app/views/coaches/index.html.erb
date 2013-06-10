@@ -1,3 +1,4 @@
+<% if can? :update, @coach%>
 <h1>Listing coaches</h1>
 
 <table>
@@ -38,3 +39,7 @@
 <br />
 
 <%= link_to 'New Coach', new_coach_path %>
+<%else%>
+
+<p>you are not authorised to view this page</p>
+<%end%>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>About us:</b>
+  <%= @about.about_us %>
+</p>
+
+<p>
+  <b>Vision:</b>
+  <%= @about.vision %>
+</p>
+
+<p>
+  <b>History:</b>
+  <%= @about.history %>
+</p>
+
+
+   <% if can? :update, @about%>
+<%= link_to 'Edit', edit_about_path(@about) %> |
+<%end%>
+<%= link_to 'Back', abouts_path %>

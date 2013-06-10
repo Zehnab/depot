@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603154605) do
+ActiveRecord::Schema.define(:version => 20130610135138) do
+
+  create_table "abouts", :force => true do |t|
+    t.text     "about_us"
+    t.text     "vision"
+    t.text     "history"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "admins", :force => true do |t|
     t.string   "email",              :default => "", :null => false
@@ -37,12 +45,39 @@ ActiveRecord::Schema.define(:version => 20130603154605) do
     t.string   "image"
   end
 
+  create_table "comments", :force => true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
   create_table "lessons", :force => true do |t|
     t.string   "title"
     t.date     "lesson_date"
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.decimal  "price"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.decimal  "uni_price"
+    t.integer  "quantity"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "products", :force => true do |t|

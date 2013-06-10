@@ -1,0 +1,21 @@
+<h1>Cart</h1>
+
+
+<table>
+	<% for cart_item in @cart.items%>
+	<tr>	
+		<td><%=cart_item.quantity%> &times; </td>
+ 		<td><%=h(cart_item.title)%> </td>
+ 		<td class ="item Price"><%= number_to_currency(cart_item.price)%></td>
+	</tr>
+		<%end%>
+	
+	
+	<tr class ="total-line"><td colspan ="2"> Total</td>
+			<td class ="total"><%= number_to_currency(@cart.total_price)%></td>
+		
+	</tr>
+
+
+	
+	</table>

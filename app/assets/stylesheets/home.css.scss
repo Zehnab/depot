@@ -1,3 +1,38 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+CSS Credit: http://www.templatemo.com
+*/
+
+
+.main_content {
+  background: #FFF url(bg.jpg) repeat-y center bottom;
+  background-color: #FFF;
+  margin: 0 auto;
+  padding: 0px;
+  width: 886px;
+}
+
+
+.sd_left {
+
+    background-color: #FFF;
+  color: #000;
+  margin: 0 0 0px 80px;
+  padding: 0px 20px 0px 5px;
+  width: 500px;
+  
+} 
+
+.sd_right {
+    clear:both;
+    background-color: #FFF;
+  float: right;
+  color: #000;
+  margin: 0 90px 0 0;
+  padding: 0px 0px 0 15px;
+  width: 170px;
+  border-left: 1px dashed #ccc;
+} 

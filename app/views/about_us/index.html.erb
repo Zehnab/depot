@@ -1,0 +1,31 @@
+<div class="main_content">
+    <div class="sd_right">
+      <div class="text_padding">
+        <h2>Meet the Coaches</h2>
+           	<% for coach in @coaches%>
+		<div class="entry">
+		
+			<p><%=h(coach.name)%></p>
+			<p>Level: <%=h(coach.level)%></p>
+		<td><%= link_to 'View Coach profile', coach %></td>
+		</div>	
+	<%end%>
+        <br />
+      
+      
+      
+      </div>
+    </div>
+    
+    	<% for about in @abouts%>
+		<div class="entry">
+			<h3>About Us</h3>			
+			<p><%=h(about.about_us)%></p>
+			<h3>Vision</h3>
+			<p><%=h(about.vision)%></p>
+			<h3>History</h3>
+			<p><%=h(about.history)%></p>
+		</div>	
+	<%end%>
+</div>
+ 

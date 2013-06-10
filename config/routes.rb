@@ -1,4 +1,14 @@
 Depot::Application.routes.draw do
+  get "about_us/index"
+
+  resources :abouts
+
+
+  resources :posts do
+    resources :comments
+  end
+
+
   resources :lessons
 
 
@@ -10,10 +20,13 @@ Depot::Application.routes.draw do
   devise_for :users
 
   get "store/index"
+  get "about_us/index"
 
  root :to => "home#index"
  
   resources :products
+  
+  match 'store/add_to_cart/:id' => 'store#add_to_cart', :as => :add_to_cart
 
 
   # The priority is based upon order of creation:

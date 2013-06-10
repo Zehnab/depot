@@ -1,0 +1,32 @@
+<h1>Listing abouts</h1>
+
+<table>
+  <tr>
+    <th>About us</th>
+    <th>Vision</th>
+    <th>History</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @abouts.each do |about| %>
+  <tr>
+    <td><%= about.about_us %></td>
+    <td><%= about.vision %></td>
+    <td><%= about.history %></td>
+    
+    <td><%= link_to 'Show', about %></td>
+    
+   <% if can? :update, @about%>
+    <td><%= link_to 'Edit', edit_about_path(about) %></td>
+    <td><%= link_to 'Destroy', about, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%end%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if can? :update, @about%>
+<%= link_to 'New About', new_about_path %>
+<%end%>
