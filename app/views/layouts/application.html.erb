@@ -4,13 +4,11 @@
   <title>Depot</title>
   
   <%= stylesheet_link_tag    "style", :media => "all" %>
-<<<<<<< HEAD
+
   <%= stylesheet_link_tag    "calender" %>
   <%= stylesheet_link_tag    "home" %>	
-  
-=======
-    <%= stylesheet_link_tag    "calender" %>
->>>>>>> a604893f06ad13e10df9aa44a780371526be9529
+  <%= stylesheet_link_tag    "calender" %>
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -37,13 +35,17 @@
 
 
 <div id="menu">
-  <ul>
+ <ul>
     <li><a href="http://localhost:3000/">Home</a>&nbsp;|&nbsp;</li>
     <li><a href="/store/index">Shop</a>&nbsp;|&nbsp;</li>
  	<li><%= link_to "blog", posts_path%></li>&nbsp;|&nbsp;
  	<li><a href="/about_us/index">About Us</a>&nbsp;|&nbsp;</li>
 	<li><%= link_to "lessons", lessons_path%>&nbsp;|&nbsp;</li>
-   </ul>
+    <li><a href="/admin/book">Album</a>&nbsp;|&nbsp;</li>
+    <li><a href="http://localhost:3000/coaches">About</a>&nbsp;|&nbsp;</li>
+    <li><%= link_to "lessons", lessons_path%></li>
+  </ul>
+
 </div>
   
 <div id="content">

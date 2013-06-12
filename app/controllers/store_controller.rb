@@ -4,20 +4,24 @@ class StoreController < ApplicationController
    # @coaches =Coach.find :all
   end
   
-  #def empty_cart
-   # session[:cart]=nil
-    #flash[:notice]="your cart is empty"
-   #redirect_to_index
-   
-   #end
+
   
   def add_to_cart
-    @cart= find_cart
-    product =Product.find(params[:id])
-    @cart.add_product(product)
+     product = Product.find(params[:id])
+        @cart = find_cart
+        @cart.add_product(product)
+      rescue ActiveRecord::RecordNotFound
+        logger.error("Attempt to access invalid product #{params[:id]}")
+          flash[:notice]="invalid product"
+        redirect_to :action =>'index'
   end
   
-  
+    def empty_cart
+   session[:cart]=nil
+  flash[:notice]="your cart is empty"
+    redirect_to :action => 'index'
+   
+  end
   private
   def find_cart
     session[:cart]||= Cart.new

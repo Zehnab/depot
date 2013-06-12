@@ -36,4 +36,18 @@ Depot::Application.configure do
   config.assets.debug = true
   
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  
+  
+  
+#  config.after_initialize do
+ # ActiveMerchant::Billing::Base.mode = :test
+  #::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+   # :username => "zyafzal-facilitator_api1.dundee.ac.uk",
+    #:password => "1371033493",
+    #:signature => "ApbKmZOQYzJ24Y13pmGYfJhp2l8GA-aTedGY9zwXAfsn4GGwYSVOPtm1"
+  #)
+#end
+  
+  
 end

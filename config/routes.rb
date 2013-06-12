@@ -27,7 +27,7 @@ Depot::Application.routes.draw do
   resources :products
   
   match 'store/add_to_cart/:id' => 'store#add_to_cart', :as => :add_to_cart
-
+  match 'store/add_to_cart/:id/empty_cart' => 'store#empty_cart', :as => :empty_cart
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

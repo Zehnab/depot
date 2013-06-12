@@ -64,4 +64,16 @@ Depot::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  
+#    config.after_initialize do
+ # ActiveMerchant::Billing::Base.mode = :production
+  #::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+   # :username => "zyafzal-facilitator_api1.dundee.ac.uk",
+    #:password => "1371033493",
+    #:signature => "ApbKmZOQYzJ24Y13pmGYfJhp2l8GA-aTedGY9zwXAfsn4GGwYSVOPtm1"
+  #)
+#end
+  
+  
 end
