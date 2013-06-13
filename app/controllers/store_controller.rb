@@ -1,6 +1,7 @@
 class StoreController < ApplicationController
   def index
     @products =Product.find_products_for_sale
+    @cart =find_cart
    # @coaches =Coach.find :all
   end
   
@@ -10,6 +11,7 @@ class StoreController < ApplicationController
      product = Product.find(params[:id])
         @cart = find_cart
         @cart.add_product(product)
+         redirect_to :action =>'index'
       rescue ActiveRecord::RecordNotFound
         logger.error("Attempt to access invalid product #{params[:id]}")
           flash[:notice]="invalid product"

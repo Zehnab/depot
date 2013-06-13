@@ -2,13 +2,8 @@
 
 
 <table>
-	<% for cart_item in @cart.items%>
-	<tr>	
-		<td><%=cart_item.quantity%> &times; </td>
- 		<td><%=h(cart_item.title)%> </td>
- 		<td class ="item Price"><%= number_to_currency(cart_item.price)%></td>
-	</tr>
-		<%end%>
+	  <%= render(:partial => "cart_item", :collection => @cart.items) %>  
+	
 	
 	
 	<tr class ="total-line"><td colspan ="2"> Total</td>
