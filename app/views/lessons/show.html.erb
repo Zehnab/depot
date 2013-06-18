@@ -16,10 +16,18 @@
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Capacity</b>
+  <%= @lesson.capacity %>
+</p>
+
+<p>
+  <b>Price</b>
   <span class="price"><%=number_to_currency(@lesson.price)%></span>
 
 </p>
+
+<%= link_to "checkout ", @lesson.paypal_url(lesson_url,  notification_lessons_url)%>
+
 
    <% if can? :update, @lesson%>
 

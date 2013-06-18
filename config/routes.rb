@@ -9,7 +9,14 @@ Depot::Application.routes.draw do
   end
 
 
-  resources :lessons
+  resources :lessons do
+ 
+  collection do
+   
+  post 'notification'
+ 
+end
+end
 
 
   resources :coaches
@@ -17,7 +24,9 @@ Depot::Application.routes.draw do
 
 #  devise_for :admins
 
-  devise_for :users
+  devise_for :users do
+    resources :bookings
+  end
 
   get "store/index"
   get "about_us/index"
@@ -28,7 +37,7 @@ Depot::Application.routes.draw do
   
   match 'store/add_to_cart/:id' => 'store#add_to_cart', :as => :add_to_cart
   match 'store/add_to_cart/:id/empty_cart' => 'store#empty_cart', :as => :empty_cart
-match 'store/empty_cart' => 'store#empty_cart', :as => :empty_cart
+  match 'store/empty_cart' => 'store#empty_cart', :as => :empty_cart
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

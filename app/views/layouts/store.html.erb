@@ -3,14 +3,20 @@
 <head>
   <title>Store Catalogue</title>
   <%= stylesheet_link_tag    "style", :media => "all" %>
-    <%= stylesheet_link_tag    "home" %>	
+  <%= stylesheet_link_tag    "home" %>	
+  <%= stylesheet_link_tag    "store" %>	
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-
+<div class="content">
+	 <div class="preheader">
+  
+  </div>
+  
 <div id="header">
   <h1 id="logo">TestSite&trade;</h1>
   <h2 id="slogan">Test on Rails</h2>
+  
 </div>
 
 <div id="user_nav">
@@ -22,7 +28,9 @@
     <%= link_to "Sign in", new_user_session_path %>
   <% end %>
 </div>
-
+<div class= "banner">
+	<img src="http://edge.neocha.com/wp-content/uploads/2013/03/BANNER-PLACEHOLDER10.jpg" border="2" width="886px" alt="some_text">
+	</div>
 <div id="menu">
  <ul>
     <li><a href="http://localhost:3000/">Home</a>&nbsp;|&nbsp;</li>
@@ -59,13 +67,12 @@
 				<%= yield%>
 		</div>
 	</div>
-</div>
+
 			
 	<div id="footer">
  &copy; 2012-2013 TestSite
 </div>
 	
-
-
+</div>
 </body>
 </html>

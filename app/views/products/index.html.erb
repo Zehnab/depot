@@ -17,7 +17,9 @@
     <td><%= product.admin %></td>
     <td><%= product.title %></td>
     <td><%= product.description %></td>
-    <td><%= product.img_url %></td>
+ <div class="image">
+ 	<td> <%= image_tag product.img_url_url.to_s %><td></td>
+  </div>
     <td><%= product.price %></td>
     
   

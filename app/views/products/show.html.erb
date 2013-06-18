@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="image">
+      <%= image_tag @product.img_url_url.to_s %>
+      </div>
+
 <p>
   <b>Admin:</b>
   <%= @product.admin %>
@@ -16,9 +21,6 @@
 </p>
 
 <p>
-  <b>Img url:</b>
-  <%= @product.img_url %>
-</p>
 
 <p>
   <b>Price:</b>

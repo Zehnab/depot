@@ -3,7 +3,9 @@
 
 <% for product in @products%>
 <div class="entry">
-	<img scr="<%=product.img_url%>"/>
+	 <div class="image">
+ 	<td> <%= image_tag product.img_url_url.to_s %><td></td>
+  </div>
 	<h3><%=h(product.title)%></h3>
 	<%=product.description%>
 	<span class="price"><%=number_to_currency(product.price)%></span>

@@ -3,6 +3,7 @@ class LessonsController < ApplicationController
   # GET /lessons.json
   load_and_authorize_resource #uses cancan
   
+  #flash[:notice] = "Your Transaction is #{params[:st]} for amount of $#{params[:amt]}. Thank You for shopping." if params[:st]
   def index
     @lessons = Lesson.all
   @date = params[:month] ? Date.parse(params[:month]) : Date.today
@@ -16,7 +17,7 @@ class LessonsController < ApplicationController
   # GET /lessons/1.json
   def show
     @lesson = Lesson.find(params[:id])
-
+    #@bookings = Booking.where(lesson: @lesson).count
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @lesson }
@@ -82,4 +83,16 @@ class LessonsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def notification
+    if params[:item_number1] && !params[:item_number1].empty?
+    #paypal sends an IPN even when the transaction is voided.
+    #save the payment status along with the amount of the transaction.
+    if params[:payment_status] != 'Voided'
+      @lesson = Lesson.find(params[:item_number1].to_i) rescue nil
+      @lesson.orders.build(:quantity => 1, :amount => params[:mc_gross_1], :status => params[:payment_status]).save unless @lesson.nil?
+    end
+  end
+  render :nothing => true
+end
 end

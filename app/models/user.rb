@@ -20,4 +20,13 @@ class User < ActiveRecord::Base
 
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  has_many :bookings
+  
+   def self.current
+    Thread.current[:user]
+  end
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
+
 end

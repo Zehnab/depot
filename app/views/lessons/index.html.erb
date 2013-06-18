@@ -30,7 +30,9 @@
   <tr>
     <th>Title</th>
     <th>Lesson date</th>
+    <th>Price</th>
     <th>Description</th>
+    <th>Capacity</th>
     <th></th>
     <th></th>
     <th></th>
@@ -46,6 +48,7 @@
     <td><%= lesson.lesson_date %></td>
     <td><span class="price"><%=number_to_currency(lesson.price)%></span></td>
         <td><%= lesson.description %></td>
+        <td><%= lesson.capacity %></td>
     <td><%= link_to 'Show', lesson %></td>
        <% if can? :update, @product%>
 	    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>

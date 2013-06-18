@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130610135138) do
+ActiveRecord::Schema.define(:version => 20130618172902) do
 
   create_table "abouts", :force => true do |t|
     t.text     "about_us"
@@ -21,9 +20,6 @@ ActiveRecord::Schema.define(:version => 20130610135138) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-=======
-ActiveRecord::Schema.define(:version => 20130604121100) do
->>>>>>> a604893f06ad13e10df9aa44a780371526be9529
 
   create_table "admins", :force => true do |t|
     t.string   "email",              :default => "", :null => false
@@ -39,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20130604121100) do
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
   end
+
+  create_table "bookings", :force => true do |t|
+    t.integer  "lesson_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "bookings", ["lesson_id"], :name => "index_bookings_on_lesson_id"
 
   create_table "coaches", :force => true do |t|
     t.string   "name"
@@ -66,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20130604121100) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.decimal  "price"
-<<<<<<< HEAD
+    t.decimal  "capacity"
   end
 
   create_table "line_items", :force => true do |t|
@@ -77,14 +82,30 @@ ActiveRecord::Schema.define(:version => 20130604121100) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "orders", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.decimal  "amount"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "payment_notifications", :force => true do |t|
+    t.text     "params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.integer  "order_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "name"
     t.string   "title"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-=======
->>>>>>> a604893f06ad13e10df9aa44a780371526be9529
   end
 
   create_table "products", :force => true do |t|

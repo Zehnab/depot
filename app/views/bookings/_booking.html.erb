@@ -1,0 +1,9 @@
+
+
+   
+ <p>  <%= Lesson.all(:joins => ' JOIN bookings ON bookings.lesson_id = lesson_id')%></p>
+<p>
+  <b>LessonId</b>
+  <%= booking.lesson_id %>
+</p>
+

@@ -5,10 +5,9 @@ class Product < ActiveRecord::Base
   validates_presence_of :title, :description, :img_url, :price
   validates_numericality_of :price
   validates_uniqueness_of :title
-  validates_format_of :img_url,
-  :with => %r{^http:.+\.(gif|jpg|png)$}i,
-  :message => "must be a URL for a GIF, JPG, or PNG image"
-  protected
+  
+  mount_uploader :img_url, ImageUploader
+  
   def validate
   errors.add(:price, "should be positive") unless price.nil? || price > 0.00
   end

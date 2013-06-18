@@ -1,3 +1,57 @@
+.content { 
+    background: #FFF; 
+	margin: 0 auto;
+	padding: 0px;
+	width: 886px;
+	color: #000;
+}
+
+.banner{
+	width: 886px;
+}
+.preheader {
+	background: #000 url(preheader.jpg) no-repeat center bottom;
+	color: #FFF;
+	width: 886px;
+	height: 71px;
+	margin: 0;
+	padding: 0;
+}
+
+	.preheader a { color: #FFF; background: inherit; text-decoration:none; }
+	.preheader a:hover { color: #FFF; background: inherit;}
+
+.preheader .padding {
+	
+	float: right;
+	padding: 52px 70px 0 0;
+	color: #FFF;
+}
+
+.header {
+	background: #000 url(header.jpg) no-repeat center bottom;
+	color: #FFF;
+	width: 886px;
+	height: 78px;
+	margin: 0;
+	padding: 0;
+}
+
+.header .title {
+	float: left;
+	padding: 12px 0 0 84px;
+	color: #FFF;
+	font: bold 1.8em Arial, sans-serif;
+}
+
+.header .slogan {
+	float: left;
+	clear: both;
+	padding: 2px 0 0 84px;
+	color: #FFF;
+	font: bold 0.8em Arial, sans-serif;
+}
+
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
@@ -19,6 +73,8 @@ a:hover { color: #fff; background-color:#000; }
   background-color: red;
   display: table;
 }
+
+
 
 #errorExplanation {
   width: 400px;
@@ -71,7 +127,7 @@ a:hover { color: #fff; background-color:#000; }
   margin: 2px;
   list-style: none;
   border-top: 5px solid #B36B00;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #999999;
 }
 
 #menu ul li {
@@ -88,7 +144,7 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 #menu a:active {
-  background-color: grey;
+  background-color: #666666;
 }
 
 #menu a:hover {
@@ -100,7 +156,9 @@ a:hover { color: #fff; background-color:#000; }
 
 #content {
   padding-bottom: 15px;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid #999999
+  
+  ;
 }
 
 #logo {
@@ -126,36 +184,8 @@ dt {
   font-weight: bold;
 }
 
-#shopping_cart {
-  border-left: 3px solid #666;
-  background: #aaa;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 200px;
-  height: 100%;
-  padding: 5px 10px;
-}
 
-#shopping_cart ul,
-#shopping_cart li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
-#shopping_cart h3 {
-  padding-top: 4em;
-}
-
-#cart_notice {
-  border: 2px solid #58A986;
-  background: #B2FFD3;
-  padding: 3px;
-  position: absolute;
-  top: 0;
-  left: 10px;
-}
 
 body {
   background-color: #fff; color: #333;
