@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618172902) do
+ActiveRecord::Schema.define(:version => 20130619121410) do
 
   create_table "abouts", :force => true do |t|
     t.text     "about_us"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20130618172902) do
   end
 
   create_table "orders", :force => true do |t|
-    t.integer  "product_id"
+    t.integer  "lesson_id"
     t.integer  "quantity"
     t.decimal  "amount"
     t.string   "status"

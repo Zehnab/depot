@@ -1,6 +1,4 @@
 class Order < ActiveRecord::Base
-  attr_accessible :amount, :product_id, :quantity, :status
-
-belongs_to :product
-has_many :payment_notifications
+  attr_accessible :amount, :lesson_id, :quantity, :status
+  belongs_to :lessons
 end

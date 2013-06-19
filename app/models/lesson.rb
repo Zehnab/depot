@@ -15,7 +15,7 @@ has_many :orders
 
 def paypal_url(return_url,  notify_url)
     values = {
-      :business => "merchant_account@dundee.com",
+      :business => "seller_account@dundee.com",
       :cmd => "_cart",
       :upload => 1,
       :return => return_url,
