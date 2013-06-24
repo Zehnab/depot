@@ -33,7 +33,7 @@ end
 
 gem 'jquery-rails'
 
-
+gem 'localtunnel', "~> 0.3"
 
 
 # To use ActiveModel has_secure_password

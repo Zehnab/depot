@@ -22,12 +22,13 @@
 
 <p>
   <b>Price</b>
-  <span class="price"><%=number_to_currency(@lesson.price)%></span>
+  <span class="price"><%=number_to_currency(@lesson.price ,:unit => "&pound;")%></span>
 
 </p>
 
-<%= link_to "checkout ", @lesson.paypal_url(lesson_url,  notification_lessons_url)%>
 
+<%= link_to "checkout ", @lesson.paypal_url(lesson_url,  notification_lessons_url)%>
+<%= link_to "make registration", new_registration_path(:lesson_id=> @lesson.id)%>
 
    <% if can? :update, @lesson%>
 

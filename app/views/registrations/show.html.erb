@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lesson:</b>
+  <%= @registration.lesson_id %>
+    <%= @registration.lesson.price %>
+</p>
+
+
+<%= link_to "checkout ", @registration.paypal_url(registration_url,  notification_registrations_url)%>
+
+
+<p>
+  <b>First name:</b>
+  <%= @registration.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @registration.last_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @registration.address %>
+</p>
+
+<p>
+  <b>Child name:</b>
+  <%= @registration.child_name %>
+</p>
+
+<p>
+  <b>Child age:</b>
+  <%= @registration.child_age %>
+</p>
+
+<p>
+  <b>Photo consent:</b>
+  <%= @registration.photo_consent %>
+</p>
+
+<p>
+  <b>Medical info:</b>
+  <%= @registration.medical_info %>
+</p>
+
+<p>
+  <b>Payment method:</b>
+  <%= @registration.payment_method %>
+</p>
+
+
+<%= link_to 'Edit', edit_registration_path(@registration) %> |
+<%= link_to 'Back', registrations_path %>

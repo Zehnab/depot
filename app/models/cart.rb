@@ -12,7 +12,7 @@ class Cart
     
     else
           
-    @items<<new(product)
+    @items<<CartItem.new(product)
     end
 
   end

@@ -1,7 +1,22 @@
 class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
-  load_and_authorize_resource #uses cancan
+  skip_before_filter :verify_authenticity_token, :only => [:notification]
+   def notification
+    puts 'hello was successfully updated.'
+    puts params
+    if params[:item_number1] && !params[:item_number1].empty?
+    #paypal sends an IPN even when the transaction is voided.
+    #save the payment status along with the amount of the transaction.
+    if params[:payment_status] != 'Voided'
+      @lesson = Lesson.find(params[:item_number1].to_i) rescue nil
+      @lesson.orders.build(:quantity => 1, :amount => params[:mc_gross_1], :status => params[:payment_status]).save unless @lesson.nil?
+    end
+  end
+  render :nothing => true
+end
+
+  #load_and_authorize_resource #uses cancan
   
   #flash[:notice] = "Your Transaction is #{params[:st]} for amount of $#{params[:amt]}. Thank You for shopping." if params[:st]
   def index
@@ -85,15 +100,5 @@ class LessonsController < ApplicationController
     end
   end
   
-  def notification
-    if params[:item_number1] && !params[:item_number1].empty?
-    #paypal sends an IPN even when the transaction is voided.
-    #save the payment status along with the amount of the transaction.
-    if params[:payment_status] != 'Voided'
-      @lesson = Lesson.find(params[:item_number1].to_i) rescue nil
-      @lesson.orders.build(:quantity => 1, :amount => params[:mc_gross_1], :status => params[:payment_status]).save unless @lesson.nil?
-    end
-  end
-  render :nothing => true
-end
+ 
 end

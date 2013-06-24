@@ -12,15 +12,25 @@ class Lesson < ActiveRecord::Base
     
 has_many :orders
 
+has_many :registrations
+ before_destroy :ensure_not_referenced_by_any_registration
+
+   def self.current
+    Thread.current[:lesson]
+  end
+  def self.current=(lesson)
+    Thread.current[:lesson] = lesson
+  end
 
 def paypal_url(return_url,  notify_url)
     values = {
       :business => "seller_account@dundee.com",
       :cmd => "_cart",
       :upload => 1,
+      :currency_code=> "GBP",
       :return => return_url,
-      :invoice => id,
-      :notify_url => notify_url
+      :invoice => rand(100),
+      :notify_url => notify_url,
     }
     
 
@@ -33,6 +43,8 @@ def paypal_url(return_url,  notify_url)
       })
     
         "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+     
+   
   end
 
     protected

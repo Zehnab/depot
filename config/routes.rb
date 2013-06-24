@@ -1,4 +1,12 @@
 Depot::Application.routes.draw do
+  resources :registrations do
+
+    collection do
+     match 'notification', :via => [:get, :post]
+  end
+end
+
+
   get "about_us/index"
 
   resources :abouts
@@ -8,15 +16,19 @@ Depot::Application.routes.draw do
     resources :comments
   end
 
-
-  resources :lessons do
+resources :lessons do
  
   collection do
-   
-  post 'notification'
+     match 'notification', :via => [:get, :post]
  
 end
+
+resources :registration
+
 end
+
+#lesson booking
+
 
 
   resources :coaches
@@ -30,6 +42,7 @@ end
 
   get "store/index"
   get "about_us/index"
+   get "home/index"
 
  root :to => "home#index"
  
@@ -38,6 +51,9 @@ end
   match 'store/add_to_cart/:id' => 'store#add_to_cart', :as => :add_to_cart
   match 'store/add_to_cart/:id/empty_cart' => 'store#empty_cart', :as => :empty_cart
   match 'store/empty_cart' => 'store#empty_cart', :as => :empty_cart
+  
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -94,4 +110,5 @@ end
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+
 end

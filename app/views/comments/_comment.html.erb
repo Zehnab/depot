@@ -8,6 +8,13 @@
   <%= comment.body %>
 </p>
 
+<p>
+  <b>FK accesing title from comment test</b>
+  <%= comment.post.title %>
+  <%= comment.post.id %>
+  <%= comment.post.content %>
+</p>
+
 <% if can? :update, @posts%>
 <p>
   <%= link_to 'Destroy Comment', [comment.post, comment],

@@ -18,7 +18,7 @@
   <ul>
       <% for lesson in lessons %>
         <li><%= link_to h(lesson.title), lesson %></li>
-      <% end %>
+        <% end %>
     </ul>
 
 <% end %>
@@ -53,6 +53,8 @@
        <% if can? :update, @product%>
 	    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
 	    <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    <td>  <%= link_to "pament" , lesson.paypal_url(lessons_url, notification_lessons_url)%>
+    </td>>
 		<%end%>
 </tr>
 <% end %>
