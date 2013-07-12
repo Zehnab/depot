@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lesson_registration: 
+  quantity: 1
+  amount: 9.99
+  status: MyString
+
+two:
+  lesson_registration: 
+  quantity: 1
+  amount: 9.99
+  status: MyString

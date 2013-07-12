@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+<h1>Lesson Registration Summary</h1>
+
+<p>
+  <h5>Lesson:</h5>
+  <%= @lesson_registration.lesson_id %>
+ 
+</p>
+
+<p>
+  <h5>First name:</h5>
+  <%= @lesson_registration.first_name %>
+</p>
+
+<p>
+  <h5>Last name:</h5>
+  <%= @lesson_registration.last_name %>
+</p>
+
+<p>
+  <h5>Address:</h5>
+  <%= @lesson_registration.address %>
+</p>
+
+<p>
+  <h5>Child name:</h5>
+  <%= @lesson_registration.child_name %>
+</p>
+
+<p>
+  <h5>Child age:</h5>
+  <%= @lesson_registration.child_age %>
+</p>
+
+<p>
+  <h5>Photo consent:</h5>
+  <%= @lesson_registration.photo_consent %>
+</p>
+
+<p>
+  <h5>Medical info:</h5>
+  <%= @lesson_registration.medical_info %>
+</p>
+
+<p>
+  <h5>Payment method:</h5>
+  <%= @lesson_registration.payment_method %>
+</p>
+
+<p>
+  <h5>Other details:</h5>
+  <%= @lesson_registration.other_details %>
+</p>
+
+<p>
+  <h5>User:</h5>
+  <%= @lesson_registration.user_id %>
+</p>
+
+  
+<% if @lesson_registration.payment_method == "paypal"%>
+
+  <a class="button medium radius success"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  <%= link_to "Proceed To Paypal ", @lesson_registration.paypal_url(root_url,  notification_lesson_registrations_url)%> </a>
+
+<%else%>
+
+<h2>thank you for your booking</h2>
+<%end%>
+</br>
+</br>
+</br>
+
+<% if can? :update, @lesson_registrations%>
+	<%= link_to 'Edit', edit_lesson_registration_path(@lesson_registration) %> |
+	<%= link_to 'Back', lesson_registrations_path %>
+<%end%>

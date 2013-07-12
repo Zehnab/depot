@@ -1,0 +1,92 @@
+<h1>Listing lesson_registrations</h1></br>
+
+
+  <h2>Paypal bookings</h2>		
+  <table>
+  <tr>
+    <th>REg_id</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
+    <th>Child name</th>
+    <th>Child age</th>
+    <th>Photo consent</th>
+    <th>Medical info</th>
+    <th>Payment method</th>
+    <th>Other details</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  	<% for lesson_booking in @lesson_bookings%>
+  	<tr>
+	    <td><%=h(lesson_booking.lesson_registration.id)%></td>
+	    <td> <%=h(lesson_booking.lesson_registration.first_name)%></td>
+	    <td> <%=h(lesson_booking.lesson_registration.last_name)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.address)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.child_name)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.child_age)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.medical_info)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.payment_method)%></td>
+		<td> <%=h(lesson_booking.status)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.other_details)%></td>
+		<td> <%=h(lesson_booking.lesson_registration.user_id)%></td>
+	    
+	 </tr>
+	<%end%>
+	
+	</table></br>
+
+
+
+  <h2>All bookings (including Paypal)</h2></br>	
+<table>
+  <tr>
+    <th>Lesson_id</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
+    <th>Child name</th>
+    <th>Child age</th>
+    <th>Photo consent</th>
+    <th>Medical info</th>
+    <th>Payment method</th>
+    <th>Other details</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+
+  
+<% @lesson_registrations.each do |lesson_registration| %>
+  <tr>
+    <td><%= lesson_registration.lesson.id %></td>
+    <td><%= lesson_registration.first_name %></td>
+    <td><%= lesson_registration.last_name %></td>
+    <td><%= lesson_registration.address %></td>
+    <td><%= lesson_registration.child_name %></td>
+    <td><%= lesson_registration.child_age %></td>
+    <td><%= lesson_registration.photo_consent %></td>
+    <td><%= lesson_registration.medical_info %></td>
+    <td><%= lesson_registration.payment_method %></td>
+    <td><%= lesson_registration.other_details %></td>
+    <td><%= lesson_registration.user_id %></td>
+    
+    
+      <% if can? :update, @lesson_registrations%>
+    <td><%= link_to 'Show', lesson_registration %></td>
+    <td><%= link_to 'Edit', edit_lesson_registration_path(lesson_registration) %></td>
+    <td><%= link_to 'Destroy', lesson_registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  		<%end%>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+
+

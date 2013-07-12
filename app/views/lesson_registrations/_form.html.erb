@@ -1,0 +1,70 @@
+<%= form_for(@lesson_registration) do |f| %>
+  <% if @lesson_registration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lesson_registration.errors.count, "error") %> prohibited this lesson_registration from being saved:</h2>
+
+      <ul>
+      <% @lesson_registration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p> PLease enter your details in the form below to register your child on the  <%= @lesson_registration.lesson.title%> lesson block</p>
+    <div class="field"> 
+    <%= f.hidden_field :lesson_id %>
+  </div>
+
+
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name  , :placeholder => "Your forename"%>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name  , :placeholder => "Your surname"%>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address,  :placeholder => "Your address here" %>
+  </div>
+  <div class="field">
+    <%= f.label :child_name %><br />
+    <%= f.text_field :child_name  , :placeholder => "Your child's full name here"%>
+  </div>
+  <div class="field">
+    <%= f.label :child_age %><br />
+    <%= f.number_field :child_age  , :placeholder => "Your child's age here"%>
+  </div>
+  <div class="field">
+	<p>Please select this option if provide parental consent that your child may be photographed as part of the event </p>
+	<%= f.check_box :photo_consent %><br /><br />
+  </div>
+  <div class="field">
+    <%= f.label :medical_info %><br />
+    <p>Please provide any medical conditions that your child may possess</p>
+    <%= f.text_area :medical_info , :placeholder => "Your child's medical details here if applicable......" %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_method %><br />
+    <p>	the paypal option below allows instant, hastle free payment. If paypal is not an option for you, then you can still pay offline through Cash, Cheque or BACS. </p>
+     <%= f.select :payment_method, [["Cheque", "cheque"], ["Paypal", "paypal"]] %>
+  </p>
+  
+  </div>
+  <div class="field">
+    <%= f.label :other_details %><br />
+    <%= f.text_area :other_details  , :placeholder => "Other details you would like to add that the form does not cover....."%>
+  </div>
+    <div class="field">
+ 
+    <%= f.hidden_field :user_id %>
+  </div>
+  
+
+  <div class="actions">
+
+    <%= f.submit "confirm booking", :class => 'button medium radius success nice' %>
+  </div>
+<% end %>
