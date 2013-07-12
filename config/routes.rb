@@ -1,10 +1,10 @@
 Depot::Application.routes.draw do
-  resources :registrations do
+  resources :lesson_registrations do
 
-    collection do
-     match 'notification', :via => [:get, :post]
-  end
-end
+ collection do
+   match 'notification', :via => [:get, :post]
+ end
+ end
 
 
   get "about_us/index"
@@ -23,7 +23,7 @@ resources :lessons do
  
 end
 
-resources :registration
+
 
 end
 
@@ -36,13 +36,13 @@ end
 
 #  devise_for :admins
 
-  devise_for :users do
-    resources :bookings
-  end
+devise_for :users
+
 
   get "store/index"
   get "about_us/index"
    get "home/index"
+   
 
  root :to => "home#index"
  
@@ -53,6 +53,9 @@ end
   match 'store/empty_cart' => 'store#empty_cart', :as => :empty_cart
   
 
+#for emailing messafes from form
+match 'contact' => 'contact#new', :as => 'contact', :via => :get
+match 'contact' => 'contact#create', :as => 'contact', :via => :post
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

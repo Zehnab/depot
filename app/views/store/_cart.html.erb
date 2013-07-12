@@ -1,10 +1,23 @@
+     <div class="sd_right">
+       <div class="text_padding">
+           <div class="panel">
+
+
+    
+         
+
+
+
+
+              
+
 <div id= "cart-title"><h1> Cart</h1></div>
 
 <table>
   <%= render(:partial => "cart_item", :collection => cart.items) %>  
 	
 	<tr class ="total-line"><td colspan ="2"> Total</td>
-			<td class ="total"><%= number_to_currency(cart.total_price)%></td>
+			<td class ="total"><%= number_to_currency(cart.total_price, :unit => "&pound;")%></td>
 		
 	</tr>
 
@@ -12,5 +25,10 @@
 	
 	</table>
 
-    <%= button_to "Empty cart", :action => :empty_cart %>
+     <a class="button medium radius success"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  
+<%= link_to "Empty cart", :action => :empty_cart %>
+ </a> 
     
+       
+        </div>
+     </div>    </div>

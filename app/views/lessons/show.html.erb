@@ -1,34 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @lesson.title %>
-</p>
+
+<h2> <%= @lesson.title %></h2>  
+
+
+<p>Mike Martin Tennis Academy has been running tennis classes since 2006 and have a 
+  reputation for delivering quality coaching. At a young age, we teach essential skills 
+  for any sports people using the mini-tennis programme. Technique, racket skills, balance,
+  coordination and matchplay will all be experienced on the course. A great opportunity for
+  your child to meet other children with similar interests and to spend the summer playing sport outdoors!</p>
 
 <p>
-  <b>Lesson date:</b>
-  <%= @lesson.lesson_date %>
-</p>
 
+<p><h3>Lesson Details</h3></p>
+
+  <h5>Begins on:  </h5>
+ <%= @lesson.lesson_date %>
+</p>
 <p>
-  <b>Description:</b>
+  <h5>Lesson Description:</h5>
   <%= @lesson.description %>
 </p>
 
-<p>
-  <b>Capacity</b>
-  <%= @lesson.capacity %>
-</p>
+
 
 <p>
-  <b>Price</b>
+ <h5>Lesson Price</h5>
   <span class="price"><%=number_to_currency(@lesson.price ,:unit => "&pound;")%></span>
 
 </p>
 
+<a class="button medium radius alert nice"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  <%= link_to 'Back', lessons_path %> </a>
 
-<%= link_to "checkout ", @lesson.paypal_url(lesson_url,  notification_lessons_url)%>
-<%= link_to "make registration", new_registration_path(:lesson_id=> @lesson.id)%>
+
+<% if @lesson.lesson_registrations.length < @lesson.capacity%>
+ <a class="button medium radius success"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  <%= link_to "Place Booking", new_lesson_registration_path(:lesson_id=> @lesson.id) %></a>
+
+
+<%else%>
+
+
+<h2>sorry lesson is fully booked</h2>
+
+<%end%>
+
+ 
 
    <% if can? :update, @lesson%>
 

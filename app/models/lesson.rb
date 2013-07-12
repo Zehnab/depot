@@ -8,12 +8,12 @@ class Lesson < ActiveRecord::Base
   validates :capacity,  :presence => :true
   
   has_many :bookings,  :dependent => :destroy
-  
+  has_many :lesson_bookings
     
 has_many :orders
 
-has_many :registrations
- before_destroy :ensure_not_referenced_by_any_registration
+has_many :lesson_registrations
+ before_destroy :ensure_not_referenced_by_any_lesson_registration
 
    def self.current
     Thread.current[:lesson]

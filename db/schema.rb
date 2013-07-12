@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623212223) do
+ActiveRecord::Schema.define(:version => 20130625135100) do
 
   create_table "abouts", :force => true do |t|
     t.text     "about_us"
@@ -63,6 +63,35 @@ ActiveRecord::Schema.define(:version => 20130623212223) do
   end
 
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "lesson_bookings", :force => true do |t|
+    t.integer  "lesson_registration_id"
+    t.integer  "quantity"
+    t.decimal  "amount"
+    t.string   "status"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  add_index "lesson_bookings", ["lesson_registration_id"], :name => "index_lesson_bookings_on_lesson_registration_id"
+
+  create_table "lesson_registrations", :force => true do |t|
+    t.integer  "lesson_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "child_name"
+    t.integer  "child_age"
+    t.boolean  "photo_consent"
+    t.text     "medical_info"
+    t.string   "payment_method"
+    t.text     "other_details"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "lesson_registrations", ["lesson_id"], :name => "index_lesson_registrations_on_lesson_id"
 
   create_table "lessons", :force => true do |t|
     t.string   "title"
@@ -117,22 +146,6 @@ ActiveRecord::Schema.define(:version => 20130623212223) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-
-  create_table "registrations", :force => true do |t|
-    t.integer  "lesson_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "address"
-    t.string   "child_name"
-    t.string   "child_age"
-    t.boolean  "photo_consent"
-    t.text     "medical_info"
-    t.string   "payment_method"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  add_index "registrations", ["lesson_id"], :name => "index_registrations_on_lesson_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

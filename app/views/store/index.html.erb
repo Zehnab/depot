@@ -1,21 +1,38 @@
 
 <h1>Store Catalogue</h1>
 
+<div class="main_content">
+     
+ <div class="sd_left">
+ 
+
 <% for product in @products%>
 <div class="entry">
 	 <div class="image">
  	<td> <%= image_tag product.img_url_url.to_s %><td></td>
   </div>
-	<h3><%=h(product.title)%></h3>
-	<%=product.description%>
-	<span class="price"><%=number_to_currency(product.price)%></span>
+	<h3>Product : <%=h(product.title)%></h3>
+	<h5>Description : <%=product.description%></h5>
+	<h5><span class="price"><%=number_to_currency(product.price, :unit => "&pound;")%></span></h5>
 	
 </div>	
+  <a class="button medium radius success"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  
+<%=link_to "ADd to cart", :action => :add_to_cart, :id => product%>
+ </a>
 
-<%=button_to "ADd to cart", :action => :add_to_cart, :id => product%>
+   
+ </div>     
+
+
+ <div id ='book now'>
+     
+ </div>
+ </div>
+ </div>
 
 
 
 
-<p>Find me in app/views/store/index.html.erb</p>
+
+
 <%end%>

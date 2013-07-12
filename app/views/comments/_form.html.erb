@@ -1,13 +1,15 @@
 <%= form_for([@post, @post.comments.build]) do |f| %>
   <div class="field">
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
+    <%= f.label "name" %><br />
+   
+    <%= f.text_field :commenter, :placeholder => "Your name" %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label "comment" %><br />
+    <%= f.text_area :body, :placeholder => "Your comment here................ " %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "add comment", :class => 'button medium radius success nice'%>
   </div>
 <% end %>
+

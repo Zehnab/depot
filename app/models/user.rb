@@ -18,10 +18,9 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
  
 
-
   attr_accessible :email, :password, :password_confirmation, :remember_me
   has_many :bookings
-  has_many :registrations
+  has_many :lesson_registrations
   
    def self.current
     Thread.current[:user]

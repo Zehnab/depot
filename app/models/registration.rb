@@ -21,6 +21,7 @@ class Registration < ActiveRecord::Base
     "amount_1" => lesson.price,
     "item_name_1" => lesson.title,
     "item_number_1" => lesson.id,
+  
     "quantity_1" => '1'
      
       })

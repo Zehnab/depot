@@ -156,6 +156,7 @@ a:hover { color: #fff; background-color:#000; }
 
 #content {
   padding-bottom: 15px;
+  padding: 15px;
   border-bottom: 1px solid #999999
   
   ;

@@ -1,39 +1,20 @@
-<h1>Listing lessons</h1>
+<h1>Tennis lessons</h1>
 
- <div id="calendar">
-  <h2 id="month">
-    <%= link_to "<", :month => (@date.beginning_of_month-1).strftime("%Y-%m-01") %>
-    <%= h @date.strftime("%B %Y") %>
-    <%= link_to ">", :month => (@date.end_of_month+1).strftime("%Y-%m-01") %>
-  </h2>
-  
-  
-  
-<%= calendar_for @lessons, :year => @date.year, :month => @date.month do |calendar| %>
-<%= calendar.head('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday') %>
-<%= calendar.day(:day_method => :lesson_date) do |date, lessons| %>
+<p>Mike Martin Tennis Academy has been running tennis classes since 2006 and have a 
+  reputation for delivering quality coaching. At a young age, we teach essential skills 
+  for any sports people using the mini-tennis programme. Technique, racket skills, balance,
+  coordination and matchplay will all be experienced on the course. A great opportunity for
+  your child to meet other children with similar interests and to spend the summer playing sport outdoors!</p>
 
-
-<%= date.day %>
-  <ul>
-      <% for lesson in lessons %>
-        <li><%= link_to h(lesson.title), lesson %></li>
-        <% end %>
-    </ul>
-
-<% end %>
-<% end %>
-
-</div>
-
+<p>Enrole your child now!!</p>
 <table>
   <tr>
-    <th>Title</th>
-    <th>Lesson date</th>
-    <th>Price</th>
-    <th>Description</th>
-    <th>Capacity</th>
-    <th></th>
+    <th><h5>Lesson Block</h5></th>
+    <th><h5>Price</h3></th>
+    <th><h5>Description</h3></th>
+    <th><h5>Lesson Capacity</h3></th>
+    <th><h5>Remaining Spaces</h3></th>
+    <th><h5>Status</h3></th>
     <th></th>
     <th></th>
   </tr>
@@ -45,15 +26,24 @@
 <% @lessons.each do |lesson| %>
   <tr>
     <td><%= lesson.title %></td>
-    <td><%= lesson.lesson_date %></td>
-    <td><span class="price"><%=number_to_currency(lesson.price)%></span></td>
-        <td><%= lesson.description %></td>
-        <td><%= lesson.capacity %></td>
-    <td><%= link_to 'Show', lesson %></td>
+    <td><%=number_to_currency(lesson.price,:unit => "&pound;")%></td>
+    <td><%= lesson.description %></td>
+    <td><%= lesson.capacity %></td>
+    <td><%= @remaining_spaces= lesson.capacity - lesson.lesson_registrations.length   %></td>
+    <% if @remaining_spaces> 0%>
+      <td><span class="label success radius">avail</span></td>
+          <td><%= link_to 'Book Now', lesson %></td>
+    <%else%>
+      <td><span class="label alert radius">full</span></td>
+    <%end%>
+    
+  
+    
+
        <% if can? :update, @product%>
 	    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
 	    <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	    <td>  <%= link_to "pament" , lesson.paypal_url(lessons_url, notification_lessons_url)%>
+	    
     </td>>
 		<%end%>
 </tr>

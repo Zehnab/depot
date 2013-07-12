@@ -1,19 +1,16 @@
-<p>
-  <b>Commenter:</b>
-  <%= comment.commenter %>
-</p>
- 
-<p>
-  <b>Comment:</b>
-  <%= comment.body %>
-</p>
+<div class=" panel ">
+<div class="row">
 
-<p>
-  <b>FK accesing title from comment test</b>
-  <%= comment.post.title %>
-  <%= comment.post.id %>
-  <%= comment.post.content %>
-</p>
+<div class="ten columns">
+<h4 class="span8">
+<%=  comment.commenter %>
+</h4>
+
+<p> <%= comment.body %></p>
+</div>
+</div>
+</div>
+
 
 <% if can? :update, @posts%>
 <p>
@@ -22,3 +19,5 @@
                :method => :delete %>
 </p>
 <%end%>
+
+

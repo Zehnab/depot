@@ -1,74 +1,121 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Depot</title>
-  
-  <%= stylesheet_link_tag    "style", :media => "all" %>
+ <html>
+ <head>
+   <title>Depot</title>
+   
+   <%= stylesheet_link_tag    "style", :media => "all" %>
 
-  <%= stylesheet_link_tag    "calender" %>
-  <%= stylesheet_link_tag    "home" %>	
-  <%= stylesheet_link_tag    "calender" %>
+   <%= stylesheet_link_tag    "calender" %>
+   <%= stylesheet_link_tag    "home" %>    
+   <%= stylesheet_link_tag    "calender" %>
 
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+   <%= javascript_include_tag "application" %>
+   <%= csrf_meta_tags %>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
-</head>
-<div class="content">
-	 <div class="preheader">
+ <script id="twitter-wjs" src="//platform.twitter.com/widgets.js"></script>
+ <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+ <script type="text/javascript"></script>
+ <link id="open-sans-css" media="all" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C800&ver=3.4.1" rel="stylesheet"></script>
+ <link id="foundation-app-css" media="all" type="text/css" href="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/stylesheets/app.css?ver=3.0" rel="stylesheet"></script>
+ <link id="main-style-css" media="all" type="text/css" href="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/style.css?ver=3.4.1" rel="stylesheet"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/modernizr.foundation.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/jquery.reveal.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/jquery.orbit-1.4.0.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/jquery.customforms.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/jquery.placeholder.min.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/jquery.tooltips.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/app.js?ver=3.4.1" type="text/javascript"></script>
+ <script src="http://320press.com/wp-foundation/wp-content/themes/wp-foundation/javascripts/foundation/off-canvas.js?ver=3.4.1" type="text/javascript"></script>
+
+
+
+ </head>
+
+
+ <div class="content">
+
+         
+         
+         
+         
+ <body class="home page page-id-77 page-template page-template-page-homepage-php" data-twttr-rendered="true">
+
+ <div class="twelve columns">
+ <header id="top-header" role="banner">
+ <div class="siteinfo">
+
+ </div>
+
+ <div id="user_nav">
+   <% if user_signed_in? %>
+     Signed in as <%= current_user.email %>. Not you?
+     <%= link_to "Sign out", destroy_user_session_path , :method =>:delete%>
+   <% else %>
+     <%= link_to "Sign up", new_user_registration_path %> or
+     <%= link_to "Sign in", new_user_session_path %>
+   <% end %>
+ </div>
+
+
+ <ul id="menu-top-nav" class="top-nav nav-bar hide-for-small">
+ <li id="menu-item-78" class="active">
+     <a href="/home/index" title="Home">Home</a>    </li>
+ <li id="menu-item-78" >
+     <a href="/about_us/index" title="Home">about us</a>    </li>
+ <li id="menu-item-78" >
+     <%= link_to "Blog", posts_path%></li>
+ <li id="menu-item-78" >
+     <a href="/contact" title="Home">contact us</a>    </li>
+
+     <li id="menu-item-78" >
+     <%= link_to "lessons", lessons_path%></li>
+
+     
+ <li id="menu-item-89" >
+     <a href="/store/index" title="store">Store</a>
+     <a class="flyout-toggle" href="#">
+     <span> </span>
+     </a>
+     </li>
+     
+
+
+         
+ </ul>
+
+
+
+
+ <div id= "banner">
+     
+ <%=image_tag("banner_design.jpg", alt: "Example Image")%>
+
      </div>
-		
-<body>
-
-<div id="header">
-  <h1 id="logo">TestSite&trade;</h1>
-  <h2 id="slogan">Test on Rails</h2>
-</div>
 
 
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path , :method =>:delete%>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or
-    <%= link_to "Sign in", new_user_session_path %>
-  <% end %>
-</div>
 
-<div id= "banner">
-	<img src="http://edge.neocha.com/wp-content/uploads/2013/03/BANNER-PLACEHOLDER10.jpg"  width="886px"  border="2" alt="some_text">
-	</div>
 
-<div id="menu">
- <ul>
-    <li><a href="/home/index/">Home</a>&nbsp;|&nbsp;</li>
-    <li><a href="/store/index">Shop</a>&nbsp;|&nbsp;</li>
- 	<li><%= link_to "blog", posts_path%></li>&nbsp;|&nbsp;
- 	<li><a href="/about_us/index">About Us</a>&nbsp;|&nbsp;</li>
-	<li><%= link_to "lessons", lessons_path%>&nbsp;|&nbsp;</li>
-    <li><a href="/admin/book">Album</a>&nbsp;|&nbsp;</li>
+ </div>
+   
+ <div id="content">
+   <%= "<h1>#{@page_title}</h1>" if @page_title %>
+   <% if flash[:notice] %>
+     <div id="notice">
+       <%= flash[:notice] %>
+     </div>
+   <% end %>
+ <%= yield %>
 
-  </ul>
+ </div>
 
-</div>
-  
-<div id="content">
-  <%= "<h1>#{@page_title}</h1>" if @page_title %>
-  <% if flash[:notice] %>
-    <div id="notice">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-<%= yield %>
+ <div id="footer">
+  &copy; 2012-2013 TestSite
+ </div>
+ </div>
 
-</div>
-
-<div id="footer">
- &copy; 2012-2013 TestSite
-</div>
-</div>
-</body>
-</html>
+ </body>
+ </html>
