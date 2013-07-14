@@ -20,7 +20,7 @@ end
   
   #flash[:notice] = "Your Transaction is #{params[:st]} for amount of $#{params[:amt]}. Thank You for shopping." if params[:st]
   def index
-    @orders=Order.find :all
+        @orders=Order.find :all
     @lessons = Lesson.all
   @date = params[:month] ? Date.parse(params[:month]) : Date.today
     respond_to do |format|

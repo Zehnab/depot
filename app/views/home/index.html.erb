@@ -45,10 +45,11 @@
  <h2>News Feed</h2>
          <% for post in @posts%>
          <div class="entry">
-             <h3><%=h(post.title)%></h3>
+         	<h3> <%= link_to h(post.title), post %> <blockquote style="text-align: right;"  ><%=h(post.created_at.to_s(:short))%></blockquote>
+</h3>
+    
              <p><%=h(post.content)%></p>
-             <p><%=h(post.created_at)%></p>
-             <td><%= link_to 'Show', post %></td>
+            
          </div>    
      <%end%>
    

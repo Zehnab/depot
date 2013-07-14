@@ -9,7 +9,8 @@ class LessonRegistrationsController < ApplicationController
   
    skip_before_filter :verify_authenticity_token, :only => [:notification]
 
-  def index  
+  def index
+     @lessons = Lesson.all  
      @lesson_bookings =LessonBooking.find :all
       @user=User.current
     if @user=@user.admin

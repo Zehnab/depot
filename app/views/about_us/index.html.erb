@@ -1,22 +1,35 @@
 <div class="main_content">
     <div class="sd_right">
       <div class="text_padding">
-        <h2>Meet the Coaches</h2>
-           	<% for coach in @coaches%>
-		<div class="entry">
-		
-			<p><%=h(coach.name)%></p>
-			<p>Level: <%=h(coach.level)%></p>
-		<td><%= link_to 'View Coach profile', coach %></td>
-		</div>	
-	<%end%>
-        <br />
+      	
+      	 <div class="panel">
+      	 	 <h2>Meet the Coaches</h2>
+      	 	</div>
+      	 	 	 <div class="panel">
+      	 	 	 	  <% for coach in @coaches%>
+					<div class="entry">
+						<h4><%=h(coach.name)%></h4>
+						<p>Level: <%=h(coach.level)%></p>
+					</div>	
+					</br>
+					  <a class="button nice radius red small"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  <%= link_to 'View profile', coach %> </a>
+				</br></br>
+				<%end%>
+				
+         </div>
+      	
+       
+
         
       
       
       
       </div>
     </div>
+
+
+
+
     
  <div class="sd_left">
  

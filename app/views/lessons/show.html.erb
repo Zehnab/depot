@@ -48,9 +48,9 @@
 
    <% if can? :update, @lesson%>
 
- 
+</br>
+</br>
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> 
 
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
 
 <%end%>

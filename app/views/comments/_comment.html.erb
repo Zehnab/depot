@@ -3,10 +3,17 @@
 
 <div class="ten columns">
 <h4 class="span8">
+<p>
+
 <%=  comment.commenter %>
+commented <time pubdate="" datetime="2012-01-8"><%= comment.created_at.to_s(:short) %></time>
+
+</p>
+
 </h4>
 
 <p> <%= comment.body %></p>
+
 </div>
 </div>
 </div>
