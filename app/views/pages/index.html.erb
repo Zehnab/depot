@@ -1,0 +1,40 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Banner image</th>
+    <th>B name</th>
+    <th>B address</th>
+    <th>B email</th>
+    <th>B tel</th>
+    <th>Useful link 1</th>
+    <th>Useful link 2</th>
+    <th>Useful link 3</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.banner_image %></td>
+    <td><%= page.b_name %></td>
+    <td><%= page.b_address %></td>
+    <td><%= page.b_email %></td>
+    <td><%= page.b_tel %></td>
+    <td><%= page.useful_link_1 %></td>
+    <td><%= page.useful_link_2 %></td>
+    <td><%= page.useful_link_3 %></td>
+    
+    
+  <% if can? :update, @pages%>
+	    <td><%= link_to 'Show', page %></td>
+	    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+   <% end %>
+    </tr>
+<% end %>
+</table>
+
+<br />
+
+

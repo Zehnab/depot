@@ -1,0 +1,49 @@
+<%= form_for(@page) do |f| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+
+      <ul>
+      <% @page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :banner_image %><br />
+    <%= f.file_field :banner_image %>
+  </div>
+  <div class="field">
+    <%= f.label :b_name %><br />
+    <%= f.text_field :b_name %>
+  </div>
+  <div class="field">
+    <%= f.label :b_address %><br />
+    <%= f.text_field :b_address %>
+  </div>
+  <div class="field">
+    <%= f.label :b_email %><br />
+    <%= f.text_field :b_email %>
+  </div>
+  <div class="field">
+    <%= f.label :b_tel %><br />
+    <%= f.number_field :b_tel %>
+  </div>
+  <div class="field">
+    <%= f.label :useful_link_1 %><br />
+    <%= f.text_field :useful_link_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :useful_link_2 %><br />
+    <%= f.text_field :useful_link_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :useful_link_3 %><br />
+    <%= f.text_field :useful_link_3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

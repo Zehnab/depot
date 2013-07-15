@@ -7,6 +7,7 @@
          <li><%= link_to 'Coaches ', coaches_path %></li>
          <li><%= link_to 'About Us Mangement', abouts_path %></li>
          <li><%= link_to 'Lesson Registration/Bookings', lesson_registrations_path %></li>
+      	 <li><%= link_to 'Page details', pages_path %></li>
       <%end%>
  </ul>
 
@@ -19,6 +20,13 @@
          <a class="button medium radius success"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  <%= link_to 'Book Now', lessons_path %> </a>
 
         </div>
+        
+          <h2> UseFul Links</h2>
+     <% for page in @pages%>
+       	 <p><a href="<%=h(page.useful_link_1) %>"><%=(h(page.useful_link_1)) %></a><br />
+ 	 		<a href="<%=h(page.useful_link_2) %>"><%=(h(page.useful_link_2)) %></a><br /> </p>
+   
+        <%end%>
          
          <h2>Search</h2>
          <form method="post" action="http://www.free-css.com/">
@@ -32,9 +40,7 @@
 
 
        
-         <h2> UseFul Links</h2>
-         <a href="http://www.free-css.com/">www.solucija.com</a><br />
-         <a href="http://www.free-css.com/">ww.free-css-templates.com</a><br />
+   
        </div>
      </div>
                    
@@ -45,8 +51,7 @@
  <h2>News Feed</h2>
          <% for post in @posts%>
          <div class="entry">
-         	<h3> <%= link_to h(post.title), post %> <blockquote style="text-align: right;"  ><%=h(post.created_at.to_s(:short))%></blockquote>
-</h3>
+         	<h3> <%= link_to h(post.title), post %> <blockquote style="text-align: right;"  ><%=h(post.created_at.to_s(:short))%></blockquote></h3>
     
              <p><%=h(post.content)%></p>
             
@@ -56,9 +61,10 @@
  </div>     
 
 
- <div id ='book now'>
-     
+
  </div>
  </div>
- </div>
+
+ 
+
    

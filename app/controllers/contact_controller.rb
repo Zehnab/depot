@@ -1,5 +1,9 @@
 class ContactController < ApplicationController
   
+  def index
+      @pages=Page.find :all
+  end
+  
   def new
     @message = Message.new
   end

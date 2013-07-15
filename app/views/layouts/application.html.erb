@@ -54,11 +54,12 @@
 
  <ul id="menu-top-nav" class="top-nav nav-bar hide-for-small">
  <li id="menu-item-78" class="active">
-     <a href="/home/index" title="Home">Home</a>    </li>
+     <a href="/home/index" title="Home">home</a>    </li>
+ <li id="menu-item-78" >
+     <%= link_to "blog", posts_path%></li>
  <li id="menu-item-78" >
      <a href="/about_us/index" title="Home">about us</a>    </li>
- <li id="menu-item-78" >
-     <%= link_to "Blog", posts_path%></li>
+
  <li id="menu-item-78" >
      <a href="/contact" title="Home">contact us</a>    </li>
 
@@ -67,7 +68,7 @@
 
      
  <li id="menu-item-89" >
-     <a href="/store/index" title="store">Store</a>
+     <a href="/store/index" title="store">store</a>
      <a class="flyout-toggle" href="#">
      <span> </span>
      </a>
@@ -79,9 +80,9 @@
  </ul>
 
 
+</header>
 
 
- <div id= "banner">
  
   <div id="user_nav"  style="text-align: right;"  >
    <% if user_signed_in? %>
@@ -93,17 +94,22 @@
    <% end %></p>
  </div>
 
+  <div id= "banner">
+         <% for page in @pages%>
+      
+         	 <%= h(image_tag(page.banner_image.to_s)) %>
+         	
+        <%end%>    
+    
  
-     
- <%=image_tag("banner_design.jpg", alt: "Example Image")%>
-
      </div>
 
  </div>
 
 
+ 
 
-   
+
  <div id="content">
    <%= "<h1>#{@page_title}</h1>" if @page_title %>
    <% if flash[:notice] %>
@@ -113,12 +119,20 @@
    <% end %>
  <%= yield %>
 
- </div>
-
+ 
  <div id="footer">
-  &copy; 2012-2013 TestSite
- </div>
- </div>
-
+ 	        <% for page in @pages%>
+       	 <p> <%=h(page.b_name) %> |
+         	 <%=h(page.b_address) %> |
+           	 <%=h(page.b_email) %> |
+       		+44(0)<%=h(page.b_tel) %>  </p>
+        <%end%>
+		 &copy; 2012-2013 TestSite
+ 		</div>
+ 	</div>
+   </div>
  </body>
+
+
+
  </html>

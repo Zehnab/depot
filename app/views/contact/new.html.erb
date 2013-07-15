@@ -14,9 +14,23 @@
     </div>
   <% end %>
 
+<% for page in @pages%>
+	<div class=" panel text ">
+		<div class="row">
+	   	 <div class="eight columns">
+			<div class="row"><h3 class="span8"><%=h(page.b_name) %> </h3></div></br></br>
+			<div class="row"><h4 class="span8">Address : </h4><p><%=h(page.b_address) %> </div></br></p>
+			<div class="row"><h4 class="span8">Email : </h4><p> <%=h(page.b_email) %></h6></div></br></p>
+			<div class="row"><h4 class="span8">Telephone : </h4><p>+44(0)<%=h(page.b_tel) %> </h6></div></br></p>
+		 </div>
+		</div>
+	</div>
 
-  <p> Please enter your details in the form below to to place an enquiry and one of our representative will
-  	contact you as soon as possbile. </p>
+ <%end%>
+		
+<h3>Send a Message	</h3>
+
+  <p> Please feel free to send us a message using the form below and one of our representative will	contact you as soon as possbile. </p>
   
   <fieldset class="fields">
     <div class="field">

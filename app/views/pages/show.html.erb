@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+
+<h2>Page Details</h2>
+<div class=" panel text ">
+<div class="row">
+
+<h4>Image Banner</h4> <%= image_tag @page.banner_image.to_s %>
+	<div class="eight columns">
+		<div class="row"><h4 class="span8">Business Name : </h4><h6><%= @page.b_name %></h6></div></br>
+		<div class="row"><h4 class="span8">Address : </h4><h6><%= @page.b_address %></h6></div></br>
+		<div class="row"><h4 class="span8">Email : </h4><h6><%= @page.b_email %></h6></div></br>
+		<div class="row"><h4 class="span8">Telephone : </h4><h6>+44(0)<%= @page.b_tel %></h6></div></br>
+		<div class="row"><h4 class="span8">Useful Link 1 : </h4><h6><%= @page.useful_link_1 %></h6></div></br>
+	</div>
+</div>
+</div>
+
+
+<%if can? :update, @page%>
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>
+<%end%>

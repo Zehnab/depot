@@ -1,4 +1,7 @@
 Depot::Application.routes.draw do
+  resources :pages
+
+
   resources :lesson_registrations do
 
  collection do

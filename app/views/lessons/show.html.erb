@@ -29,8 +29,13 @@
   <span class="price"><%=number_to_currency(@lesson.price ,:unit => "&pound;")%></span>
 
 </p>
-
+</br>
+</br>
 <a class="button medium radius alert nice"" onclick="_gaq.push(['_trackEvent', 'Buttons', 'Download theme', 'Homepage']);""  <%= link_to 'Back', lessons_path %> </a>
+
+
+
+
 
 
 <% if @lesson.lesson_registrations.length < @lesson.capacity%>
@@ -44,6 +49,7 @@
 
 <%end%>
 
+</br></br></br></br>
  
 
    <% if can? :update, @lesson%>
@@ -54,3 +60,4 @@
 
 
 <%end%>
+
